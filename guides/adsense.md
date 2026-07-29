@@ -26,6 +26,24 @@ Blogger + AdSense 기준. 수익과 가독성의 균형을 목표로 합니다.
 
 ## Blogger에서 할 일 (최초 1회)
 
-1. AdSense 계정과 Blogger 블로그 연결
-2. 테마 → 광고 / 레이아웃에서 단위 배치, 또는 **자동 광고** + 본문 수동 1곳
-3. [게시물 관리](https://draft.blogger.com/blog/posts/4140417902046144251?hl=ko&tab=jj)에서 초안 게시 전 미리보기로 모바일·데스크톱 확인
+상태(2026-07-29 재확인):
+
+| 항목 | 상태 |
+|------|------|
+| Publisher ID | `pub-3486781393392576` |
+| 계정 | 생성됨 (`cjseok@gmail.com`) |
+| 사이트 | `moyeo.blogspot.com` 연결됨 |
+| 광고 설정 | 확정됨 |
+| 사이트 승인 | **검토 중** (하루~수주) |
+| 광고 게재 | 승인 후 시작 |
+
+### 승인 대기 중 할 일
+
+- 주 1회 이상 글 게시 유지 (콘텐츠·트래픽이 심사에 유리)
+- [Blogger 수익](https://draft.blogger.com/blog/earnings/4140417902046144251?hl=ko) / [애드센스 홈](https://adsense.google.com/adsense/u/0/pub-3486781393392576/home)에서 승인 여부 확인
+- 승인되면 자동 광고 확인 + 본문 `<!-- ADSENSE: mid -->` / `end` 위치 점검
+
+### 승인 후
+
+1. [게시물 관리](https://draft.blogger.com/blog/posts/4140417902046144251?hl=ko&tab=jj)에서 미리보기(모바일/데스크톱)
+2. 테마/레이아웃 또는 자동 광고 + 본문 중간 1곳
