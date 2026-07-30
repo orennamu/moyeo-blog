@@ -1,4 +1,5 @@
 /* moyeo — 2026 editorial theme override
+   scroll fix 2026-07-29k: keep page scrollbar, hide drawer scrollbar */
    Brand: 삶은 의지를 필요로 한다. / 잡학 디버깅 노트
    Direction: light reading room, ink + moss accent, no card stack
 */
@@ -68,19 +69,44 @@ body {
   border: 0 !important;
 }
 
-/* Header / brand */
+/* Header / brand — compact, not a hero band */
+.bg-photo,
+.bg-photo-overlay,
+.page_body > .bg-photo {
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
 .header-wrapper,
 .header-inner,
 #header,
 .header,
 .Header,
+#Header1,
+.blog-name,
 .centered-top-container,
 .centered-top {
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
   text-align: center !important;
-  padding: 4.5rem 1.25rem 1.5rem !important;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 1.25rem 1.25rem 0.85rem !important;
+}
+
+.centered-top-container,
+.centered-top {
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.blog-name.container,
+#header,
+#Header1 {
+  padding-top: 0.35rem !important;
+  padding-bottom: 0.35rem !important;
 }
 
 #header .titlewrapper,
@@ -88,14 +114,14 @@ body {
 .Header .title,
 #header h1,
 .header h1,
-h1 {
+.blog-name h1 {
   font-family: "Newsreader", "Noto Serif KR", Georgia, serif !important;
   font-weight: 650 !important;
-  font-size: clamp(2.1rem, 5.5vw, 3.4rem) !important;
-  line-height: 1.15 !important;
+  font-size: clamp(1.45rem, 3.2vw, 2rem) !important;
+  line-height: 1.2 !important;
   letter-spacing: -0.03em !important;
   color: var(--ink) !important;
-  margin: 0 auto 0.75rem !important;
+  margin: 0 auto 0.2rem !important;
   max-width: none !important;
   white-space: nowrap;
 }
@@ -106,16 +132,17 @@ h1 {
   .Header .title,
   #header h1,
   .header h1,
-  h1 {
+  .blog-name h1 {
     white-space: normal;
-    max-width: 12em !important;
+    max-width: 14em !important;
+    font-size: 1.35rem !important;
   }
 }
 
 #header .title a,
 .Header h1 a,
 .header h1 a,
-h1 a {
+.blog-name h1 a {
   color: inherit !important;
   text-decoration: none !important;
 }
@@ -124,24 +151,141 @@ h1 a {
 .Header .description,
 .header .description {
   font-family: "IBM Plex Sans KR", sans-serif !important;
-  font-size: 0.95rem !important;
+  font-size: 0.85rem !important;
   color: var(--muted) !important;
   max-width: 36ch;
-  margin: 0.5rem auto 0 !important;
+  margin: 0.15rem auto 0 !important;
   font-weight: 400 !important;
 }
 
 #header .titlewrapper::after,
-.Header .titlewrapper::after {
+.Header .titlewrapper::after,
+.blog-name .titlewrapper::after {
   content: "moyeo · 잡학 디버깅 노트";
   display: block;
-  margin-top: 1.25rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
+  margin-top: 0.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--moss);
   font-weight: 500;
   font-family: "IBM Plex Sans KR", sans-serif;
+}
+
+/* Top chrome: dark icons on light paper (Contemp defaults to white-on-hero) */
+.centered-top {
+  position: relative !important;
+  min-height: 48px !important;
+  box-sizing: border-box !important;
+}
+
+.centered-top > .hamburger-menu,
+.centered-top > button.hamburger-menu {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  z-index: 130 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 48px !important;
+  height: 48px !important;
+  margin: 0 !important;
+  color: var(--ink) !important;
+  /* do NOT force display — Contemp hides hamburger when wide sidebar is open */
+}
+
+.centered-top > .search,
+.centered-top .search {
+  position: absolute !important;
+  right: 0 !important;
+  top: 0 !important;
+  z-index: 130 !important;
+}
+
+.centered-top .hamburger-menu svg,
+.centered-top .hamburger-menu .svg-icon-24,
+.centered-top .search-expand svg,
+.centered-top .search-expand .svg-icon-24,
+.centered-top .flat-icon-button svg,
+.centered-top svg.svg-icon-24 {
+  fill: var(--ink) !important;
+  color: var(--ink) !important;
+  opacity: 1 !important;
+}
+
+.sidebar-container .sidebar-back,
+.sidebar-container .svg-icon-24-button.sidebar-back {
+  color: var(--ink) !important;
+}
+
+.sidebar-container .sidebar-back svg,
+.sidebar-container .navigation svg.svg-icon-24,
+.sidebar-container .navigation .svg-icon-24 {
+  fill: var(--ink) !important;
+  color: var(--ink) !important;
+  opacity: 1 !important;
+}
+
+/* Drawer mode (<1440): pin sidebar to viewport top */
+@media screen and (max-width: 1439px) {
+  .sidebar-container,
+  .sidebar-container.container {
+    position: fixed !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+    z-index: 200 !important;
+    overflow: hidden !important;
+  }
+
+  .sidebar-container > .navigation {
+    display: block !important;
+    z-index: 201 !important;
+  }
+
+  .sidebar-container .sidebar_top_wrapper,
+  .sidebar-container .sidebar_top {
+    height: auto !important;
+    max-height: none !important;
+    margin-top: 0 !important;
+  }
+}
+
+/*
+  Wide Contemp (≥1440): sidebar docks left and hamburger hides.
+  Theme still uses margin-top:480px for the old tall hero — reset to 0 after compact header.
+*/
+@media screen and (min-width: 1440px) {
+  .sidebar-container,
+  .sidebar-container.container {
+    margin-top: 0 !important;
+    min-height: 100% !important;
+    top: 0 !important;
+    z-index: 32 !important;
+  }
+
+  .sidebar-container .sidebar_top_wrapper {
+    height: auto !important;
+    max-height: none !important;
+    margin-top: 0 !important;
+    background: transparent !important;
+  }
+
+  .sidebar-container .sidebar_top {
+    display: block !important;
+    height: auto !important;
+    max-height: none !important;
+    flex-direction: column !important;
+  }
+
+  .sidebar-container .navigation {
+    display: none !important;
+  }
+
+  .hamburger-menu,
+  .centered-top > .hamburger-menu,
+  .centered-top > button.hamburger-menu {
+    display: none !important;
+  }
 }
 
 /* Reading width */
@@ -250,33 +394,433 @@ a.more {
   padding-bottom: 1px;
 }
 
-/* Sidebar quieter */
-.sidebar,
-.column-right-outer,
-.column-left-outer,
-aside,
-.sidebar-container {
-  color: var(--muted) !important;
-  background: transparent !important;
+/* ========== Sidebar drawer (modern) ========== */
+.sidebar-container,
+.sidebar-container.container {
+  box-sizing: border-box !important;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  color: var(--ink-soft) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(243, 240, 232, 0.96) 28%) !important;
+  border-right: 1px solid var(--line) !important;
 }
 
-.sidebar .widget,
-.sidebar .widget-content {
+.sidebar-container > .navigation {
+  height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
+  padding: 0 0.35rem !important;
+  box-sizing: border-box !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-bottom: 1px solid var(--line) !important;
+}
+
+.sidebar-container .sidebar-back,
+.sidebar-container .svg-icon-24-button.sidebar-back {
+  width: 40px !important;
+  height: 40px !important;
+  margin: 4px !important;
+}
+
+.sidebar_top_wrapper,
+.sidebar_bottom_wrapper,
+#sidebar_top,
+#sidebar_bottom {
   background: transparent !important;
-  border: 0 !important;
   box-shadow: none !important;
-  padding: 1rem 0 !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
 }
 
-.sidebar h2,
-.sidebar .title {
+#sidebar_bottom {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.35rem !important;
+  padding: 0.35rem 0 1.25rem !important;
+}
+
+/* Categories first, archive second */
+#Label1 {
+  order: 1 !important;
+}
+#BlogArchive1 { order: 2 !important; }
+.sidebar-container .widget.ReportAbuse,
+#ReportAbuse1 { order: 9 !important; }
+
+.sidebar-container .widget {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+/* --- Profile: compact top row --- */
+#Profile1,
+#Profile1.widget.Profile {
+  display: block !important;
+  height: auto !important;
+  overflow: hidden !important;
+  padding: 0.55rem 1rem !important;
+  margin: 0 !important;
+  border-bottom: 1px solid var(--line) !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+#Profile1 .wrapper,
+#Profile1 .widget-content {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 0.55rem !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+#Profile1 .widget-content > a {
+  flex: 0 0 auto !important;
+  display: block !important;
+  width: 28px !important;
+  height: 28px !important;
+  line-height: 0 !important;
+}
+
+#Profile1 .default-avatar-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 999px !important;
+  background: rgba(47, 107, 79, 0.1) !important;
+}
+
+#Profile1 .avatar-icon,
+#Profile1 .default-avatar-wrapper svg {
+  width: 16px !important;
+  height: 16px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  fill: var(--moss-deep) !important;
+  color: var(--moss-deep) !important;
+}
+
+#Profile1 .profile-info {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#Profile1 .profile-datablock {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#Profile1 .profile-datablock dt,
+#Profile1 .profile-datablock dd {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#Profile1 .profile-link.g-profile {
+  display: block !important;
   font-family: "IBM Plex Sans KR", sans-serif !important;
-  font-size: 0.75rem !important;
-  letter-spacing: 0.12em !important;
+  font-size: 0.84rem !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  color: var(--ink) !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+#Profile1 .visit-profile,
+#Profile1 a.visit-profile.pill-button {
+  display: none !important;
+}
+
+/* --- Categories as vertical menu list (not cloud chips) --- */
+#Label1 details,
+#Label1 details.collapsible,
+#Label1 details.collapsible.extendable {
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0.45rem 0 0.15rem !important;
+  overflow: visible !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
+#Label1 details > summary {
+  list-style: none !important;
+  cursor: default !important;
+  pointer-events: none !important;
+  padding: 0.15rem 1rem 0.35rem !important;
+  margin: 0 !important;
+  min-height: 0 !important;
+}
+
+#Label1 details > summary::-webkit-details-marker {
+  display: none !important;
+}
+
+#Label1 .collapsible-title {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#Label1 .collapsible-title .chevron-down,
+#Label1 .collapsible-title .chevron-up,
+#Label1 summary svg {
+  display: none !important;
+}
+
+#Label1 .title,
+#Label1 h3.title {
+  font-family: "IBM Plex Sans KR", sans-serif !important;
+  font-size: 0.68rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
   text-transform: uppercase !important;
   color: var(--moss) !important;
+  margin: 0 !important;
+  padding: 0 !important;
   border: 0 !important;
+}
+
+/*
+  Contemp wraps labels in <details> closed by default, and sets
+  .collapsible > :not(summary) { display: none }.
+  Chromium also hides closed details via ::details-content
+  { content-visibility: hidden }. Force the category menu open.
+*/
+#Label1 details.collapsible,
+#Label1 details.collapsible.extendable,
+#Label1 details:not([open]) {
+  transition: none !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  min-height: 0 !important;
+}
+
+#Label1 details::details-content,
+#Label1 details.collapsible::details-content,
+#Label1 details:not([open])::details-content,
+#Label1 details.collapsible:not([open])::details-content {
+  display: block !important;
+  content-visibility: visible !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#Label1 details.collapsible > :not(summary),
+#Label1 details.collapsible.extendable > :not(summary),
+#Label1 details > .widget-content,
+#Label1 details:not([open]) > .widget-content,
+#Label1 details:not([open]) > *:not(summary) {
+  display: block !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  content-visibility: visible !important;
+  position: static !important;
+  clip: auto !important;
+}
+
+#Label1 .list-label-widget-content,
+#Label1 .cloud-label-widget-content,
+#Label1 .first-items {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+}
+
+#Label1 ul {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+#Label1 li,
+#Label1 .list-label-widget-content li,
+#Label1 ul > li {
+  display: block !important;
+  float: none !important;
+  clear: both !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+#Label1 a.label-name,
+#Label1 .list-label-widget-content a.label-name {
+  display: flex !important;
+  align-items: center !important;
+  float: none !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 44px !important;
+  padding: 0.7rem 1rem !important;
+  margin: 0 !important;
+  font-family: "IBM Plex Sans KR", sans-serif !important;
+  font-size: 0.98rem !important;
+  font-weight: 500 !important;
+  line-height: 1.3 !important;
+  color: var(--ink) !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  border: 0 !important;
+  border-left: 3px solid transparent !important;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+#Label1 a.label-name:hover,
+#Label1 a.label-name:focus {
+  background: rgba(47, 107, 79, 0.08) !important;
+  border-left-color: var(--moss) !important;
+  color: var(--moss-deep) !important;
+}
+
+/* --- Archive: quieter secondary --- */
+#BlogArchive1 details.collapsible {
+  margin: 0.35rem 0 0 !important;
+  padding: 0.35rem 0 0 !important;
+  border-top: 1px solid var(--line) !important;
+}
+
+#BlogArchive1 summary {
+  list-style: none !important;
+  padding: 0.55rem 1rem !important;
+  margin: 0 !important;
+  min-height: 0 !important;
+}
+
+#BlogArchive1 summary::-webkit-details-marker {
+  display: none !important;
+}
+
+#BlogArchive1 .title,
+#BlogArchive1 h3.title {
+  font-family: "IBM Plex Sans KR", sans-serif !important;
+  font-size: 0.7rem !important;
   font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: var(--muted) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#BlogArchive1 .collapsible-title svg {
+  opacity: 0.45;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+#BlogArchive1 .widget-content {
+  padding: 0 0.5rem 0.5rem !important;
+}
+
+#BlogArchive1 a {
+  color: var(--ink-soft) !important;
+  font-size: 0.88rem !important;
+}
+
+/* Report link muted at bottom */
+.sidebar-container .widget.ReportAbuse,
+#ReportAbuse1 {
+  margin-top: 0.75rem !important;
+  padding: 0.5rem 1rem 0 !important;
+  opacity: 0.55;
+}
+
+.sidebar-container .widget.ReportAbuse a,
+#ReportAbuse1 a {
+  font-size: 0.78rem !important;
+}
+
+/* Drawer open: keep the page scrollbar; don't add a second one on the drawer */
+@media screen and (max-width: 1439px) {
+  /* Undo Contemp body lock + page_body scroll swap that stacks scrollbars */
+  body.sidebar-visible {
+    overflow: visible !important;
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  html:has(body.sidebar-visible) {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  body.sidebar-visible .page_body,
+  body.sidebar-visible .bg-photo-container,
+  body.sidebar-visible .page {
+    overflow: visible !important;
+  }
+
+  /* Sidebar panel: no independent scrollbar (main page scroll stays the only one) */
+  body.sidebar-visible .sidebar-container,
+  body.sidebar-visible .sidebar-container.container,
+  body.sidebar-visible .sidebar-container.sidebar-visible,
+  .sidebar-container.sidebar-visible {
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+  }
+
+  body.sidebar-visible #sidebar_top,
+  body.sidebar-visible #sidebar_bottom,
+  body.sidebar-visible .sidebar_top_wrapper,
+  body.sidebar-visible .sidebar_bottom_wrapper {
+    overflow: hidden !important;
+    overflow-y: hidden !important;
+  }
 }
 
 .share-buttons,
@@ -307,8 +851,11 @@ aside,
   .header-wrapper,
   #header,
   .header,
+  #Header1,
+  .blog-name,
+  .centered-top-container,
   .centered-top {
-    padding: 3rem 1rem 1.25rem !important;
+    padding: 0.65rem 1rem 0.5rem !important;
   }
 
   .blog-posts .post-outer,

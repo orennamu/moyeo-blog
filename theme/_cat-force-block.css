@@ -1,0 +1,46 @@
+/*
+  Contemp wraps labels in <details> closed by default, and sets
+  .collapsible > :not(summary) { display: none }.
+  Chromium also hides closed details via ::details-content
+  { content-visibility: hidden }. Force the category menu open.
+*/
+#Label1 details.collapsible,
+#Label1 details.collapsible.extendable,
+#Label1 details:not([open]) {
+  transition: none !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  min-height: 0 !important;
+}
+
+#Label1 details::details-content,
+#Label1 details.collapsible::details-content,
+#Label1 details:not([open])::details-content,
+#Label1 details.collapsible:not([open])::details-content {
+  display: block !important;
+  content-visibility: visible !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#Label1 details.collapsible > :not(summary),
+#Label1 details.collapsible.extendable > :not(summary),
+#Label1 details > .widget-content,
+#Label1 details:not([open]) > .widget-content,
+#Label1 details:not([open]) > *:not(summary) {
+  display: block !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  content-visibility: visible !important;
+  position: static !important;
+  clip: auto !important;
+}
