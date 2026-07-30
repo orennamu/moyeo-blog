@@ -7,7 +7,7 @@
 - `posts/` — 주간 초안 (마크다운). 검토 후 [Blogger 관리](https://draft.blogger.com/blog/posts/4140417902046144251?hl=ko&tab=jj)에 붙여 넣습니다.
 - `guides/voice.md` — 문체·톤 가이드
 - `guides/adsense.md` — 애드센스 배치 가이드
-- `guides/categories.md` — 카테고리(라벨): 관광지 소개 / 잡학 / 주식
+- `guides/categories.md` — 카테고리(라벨): 관광지 소개 / 잡학 / 주식 / 개발 노트
 - `topics/backlog.md` — 주제 백로그
 
 ## 워크플로

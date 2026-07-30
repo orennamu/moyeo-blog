@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+#Label1 details::details-content,
+#Label1 details:not([open])::details-content {
+  display: block !important;
+  content-visibility: visible !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+#Label1 details:not([open]) > *:not(summary) {
+  display: block !important;
+  content-visibility: visible !important;
+}
+a.label-name { display:block; padding:8px; font-size:20px; }
+</style></head><body>
+<div id="Label1">
+<details class="collapsible">
+<summary><h3>카테고리</h3></summary>
+<div class="widget-content list-label-widget-content">
+<ul>
+<li><a class="label-name">관광지 소개</a></li>
+<li><a class="label-name">잡학</a></li>
+<li><a class="label-name">주식</a></li>
+<li><a class="label-name">개발 노트</a></li>
+</ul>
+</div>
+</details>
+</div>
+<script>
+requestAnimationFrame(() => {
+  const d=document.querySelector('details');
+  const r=document.querySelector('.widget-content').getBoundingClientRect();
+  const cs=getComputedStyle(d, '::details-content');
+  document.title = 'open=' + d.open + ';h=' + Math.round(r.height) + ';cv=' + (cs.contentVisibility||'na');
+});
+</script>
+</body></html>
