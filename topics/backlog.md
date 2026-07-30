@@ -8,8 +8,11 @@
 - [ ] 집을 고치려다 예산이 터질 때 — 요구사항과 제약의 디버깅
 - [ ] 고른 종목만 떨어지는 느낌 — 선택 편향과 피드백 루프
 - [ ] 익숙한 출근길을 낯설게 걷는 실험
+- [ ] Korea Spotlights #3 — next English landmark intro (TBD)
 
 ## 사용함
 
+- [x] Korea Spotlights #2 — Gwangmyeong Cave English guide (2026-07-29, `posts/2026-07-29-gwangmyeong-cave-english.md`) — published
+- [x] Korea Spotlights #1 — Nogodan Peak English guide (2026-07-29, `posts/2026-07-29-nogodan-english.md`) — published
 - [x] 코스피·코스닥 시황 — 서킷브레이커와 피드백 루프 (2026-07-29, `posts/2026-07-29-kospi-circuit-breaker.md`)
 - [x] 비가 오는 날 기억이 길어지는 이유 — 감정 로그와 컨텍스트 (2026-07-29, `posts/2026-07-29-rain-memory-log.md`)
