@@ -12,6 +12,11 @@
 
 ## 사용함
 
+- [x] 코스피·코스닥 시황 — 역대급 상승 마감·스냅백 (2026-07-31, `posts/2026-07-31-kospi-historic-close-green.md`) — published
+- [x] 코스피·코스닥 시황 — 매수 사이드카·두 자릿수 급등 (2026-07-31, `posts/2026-07-31-kospi-buy-sidecar-surge.md`) — published
+- [x] 쿠버네티스 워커 노드 추가 — kubeadm join·Ready 검증 (2026-07-31, `posts/2026-07-31-kubernetes-add-worker-node.md`) — published
+- [x] 로컬 쿠버네티스 설치·환경 셋팅 — kubectl·kind (2026-07-30, `posts/2026-07-30-kubernetes-local-setup.md`) — published
+- [x] 코스피·코스닥 시황 — 장중 급반등 후 하락 마감·거짓 초록 (2026-07-30, `posts/2026-07-30-kospi-false-green-spike.md`) — published
 - [x] 코스피·코스닥 시황 — 패닉셀 이후 쿨다운·FOMC (2026-07-30, `posts/2026-07-30-kospi-cooldown-after-panic.md`) — published
 - [x] Korea Spotlights #2 — Gwangmyeong Cave English guide (2026-07-29, `posts/2026-07-29-gwangmyeong-cave-english.md`) — published
 - [x] Korea Spotlights #1 — Nogodan Peak English guide (2026-07-29, `posts/2026-07-29-nogodan-english.md`) — published
