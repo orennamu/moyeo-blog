@@ -445,8 +445,11 @@ a.more {
   padding: 0.35rem 0 1.25rem !important;
 }
 
-/* Categories first, archive second */
+/* Unified category+subscribe HTML gadget; hide legacy Label widget */
 #Label1 {
+  display: none !important;
+}
+.sidebar-container .widget:has(.moyeo-cat-subscribe) {
   order: 1 !important;
 }
 #BlogArchive1 { order: 2 !important; }
@@ -561,48 +564,9 @@ a.more {
   display: none !important;
 }
 
-/* --- Categories as vertical menu list (not cloud chips) --- */
-#Label1 details,
-#Label1 details.collapsible,
-#Label1 details.collapsible.extendable {
-  border: 0 !important;
-  margin: 0 !important;
-  padding: 0.45rem 0 0.15rem !important;
-  overflow: visible !important;
-  height: auto !important;
-  max-height: none !important;
-}
-
-#Label1 details > summary {
-  list-style: none !important;
-  cursor: default !important;
-  pointer-events: none !important;
-  padding: 0.15rem 1rem 0.35rem !important;
-  margin: 0 !important;
-  min-height: 0 !important;
-}
-
-#Label1 details > summary::-webkit-details-marker {
-  display: none !important;
-}
-
-#Label1 .collapsible-title {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  gap: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-#Label1 .collapsible-title .chevron-down,
-#Label1 .collapsible-title .chevron-up,
-#Label1 summary svg {
-  display: none !important;
-}
-
-#Label1 .title,
-#Label1 h3.title {
+/* --- Unified category browse + email/RSS (HTML gadget) --- */
+.sidebar-container .widget:has(.moyeo-cat-subscribe) .title,
+.sidebar-container .widget:has(.moyeo-cat-subscribe) h3.title {
   font-family: "IBM Plex Sans KR", sans-serif !important;
   font-size: 0.68rem !important;
   font-weight: 600 !important;
@@ -610,119 +574,152 @@ a.more {
   text-transform: uppercase !important;
   color: var(--moss) !important;
   margin: 0 !important;
-  padding: 0 !important;
+  padding: 0.45rem 1rem 0.2rem !important;
   border: 0 !important;
 }
 
-/*
-  Contemp wraps labels in <details> closed by default, and sets
-  .collapsible > :not(summary) { display: none }.
-  Chromium also hides closed details via ::details-content
-  { content-visibility: hidden }. Force the category menu open.
-*/
-#Label1 details.collapsible,
-#Label1 details.collapsible.extendable,
-#Label1 details:not([open]) {
-  transition: none !important;
-  height: auto !important;
-  max-height: none !important;
-  overflow: visible !important;
-  min-height: 0 !important;
-}
-
-#Label1 details::details-content,
-#Label1 details.collapsible::details-content,
-#Label1 details:not([open])::details-content,
-#Label1 details.collapsible:not([open])::details-content {
-  display: block !important;
-  content-visibility: visible !important;
-  height: auto !important;
-  max-height: none !important;
-  overflow: visible !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-#Label1 details.collapsible > :not(summary),
-#Label1 details.collapsible.extendable > :not(summary),
-#Label1 details > .widget-content,
-#Label1 details:not([open]) > .widget-content,
-#Label1 details:not([open]) > *:not(summary) {
-  display: block !important;
-  height: auto !important;
-  max-height: none !important;
-  overflow: visible !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  padding: 0 !important;
+.moyeo-cat-subscribe {
   margin: 0 !important;
-  content-visibility: visible !important;
-  position: static !important;
-  clip: auto !important;
-}
-
-#Label1 .list-label-widget-content,
-#Label1 .cloud-label-widget-content,
-#Label1 .first-items {
-  margin: 0 !important;
-  padding: 0 !important;
-  display: block !important;
-}
-
-#Label1 ul {
-  list-style: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  display: block !important;
+  padding: 0 0 0.15rem !important;
   width: 100% !important;
+  box-sizing: border-box !important;
 }
 
-#Label1 li,
-#Label1 .list-label-widget-content li,
-#Label1 ul > li {
-  display: block !important;
-  float: none !important;
-  clear: both !important;
-  width: 100% !important;
-  max-width: 100% !important;
+.moyeo-cat-subscribe__hint {
   margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
+  padding: 0.15rem 1rem 0.35rem !important;
+  font-family: "IBM Plex Sans KR", sans-serif !important;
+  font-size: 0.78rem !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+  color: var(--muted) !important;
 }
 
-#Label1 a.label-name,
-#Label1 .list-label-widget-content a.label-name {
+.moyeo-cat-subscribe__email {
+  margin: 0 !important;
+  padding: 0.15rem 1rem 0.85rem !important;
+  border-bottom: 1px solid var(--line) !important;
+  box-sizing: border-box !important;
+}
+
+.moyeo-cat-subscribe__email-btn {
   display: flex !important;
   align-items: center !important;
-  float: none !important;
+  justify-content: center !important;
   box-sizing: border-box !important;
   width: 100% !important;
-  max-width: 100% !important;
-  min-height: 44px !important;
-  padding: 0.7rem 1rem !important;
+  min-height: 42px !important;
   margin: 0 !important;
+  padding: 0.55rem 0.85rem !important;
+  border: 1px solid var(--moss) !important;
+  border-radius: 0 !important;
+  background: var(--moss) !important;
+  color: #fff !important;
+  font-family: "IBM Plex Sans KR", sans-serif !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.moyeo-cat-subscribe__email-btn:hover,
+.moyeo-cat-subscribe__email-btn:focus {
+  background: var(--moss-deep) !important;
+  border-color: var(--moss-deep) !important;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.moyeo-cat-subscribe__email-note {
+  margin: 0.4rem 0 0 !important;
+  padding: 0 !important;
+  font-family: "IBM Plex Sans KR", sans-serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 400 !important;
+  line-height: 1.35 !important;
+  color: var(--muted) !important;
+}
+
+.moyeo-cat-subscribe__list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0.15rem 0 0 !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+.moyeo-cat-subscribe__list > li {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0.75rem !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-height: 44px !important;
+  margin: 0 !important;
+  padding: 0.7rem 1rem !important;
+  border: 0 !important;
+  border-left: 3px solid transparent !important;
+  background: transparent !important;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.moyeo-cat-subscribe__list > li:hover,
+.moyeo-cat-subscribe__list > li:focus-within {
+  background: rgba(47, 107, 79, 0.08) !important;
+  border-left-color: var(--moss) !important;
+}
+
+.moyeo-cat-subscribe__list > li.moyeo-cat-subscribe__all {
+  border-bottom: 1px solid var(--line) !important;
+  margin-bottom: 0.15rem !important;
+  padding-bottom: 0.85rem !important;
+}
+
+.moyeo-cat-subscribe__name {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
   font-family: "IBM Plex Sans KR", sans-serif !important;
   font-size: 0.98rem !important;
   font-weight: 500 !important;
   line-height: 1.3 !important;
   color: var(--ink) !important;
   text-decoration: none !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  border: 0 !important;
-  border-left: 3px solid transparent !important;
-  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
 
-#Label1 a.label-name:hover,
-#Label1 a.label-name:focus {
-  background: rgba(47, 107, 79, 0.08) !important;
-  border-left-color: var(--moss) !important;
+a.moyeo-cat-subscribe__name:hover,
+a.moyeo-cat-subscribe__name:focus {
   color: var(--moss-deep) !important;
+  text-decoration: none !important;
+}
+
+.moyeo-cat-subscribe__list > li.moyeo-cat-subscribe__all .moyeo-cat-subscribe__name {
+  font-weight: 600 !important;
+}
+
+.moyeo-cat-subscribe__list > li:hover .moyeo-cat-subscribe__name,
+.moyeo-cat-subscribe__list > li:focus-within .moyeo-cat-subscribe__name {
+  color: var(--moss-deep) !important;
+}
+
+.moyeo-cat-subscribe__rss {
+  flex: 0 0 auto !important;
+  font-family: "IBM Plex Sans KR", sans-serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  color: var(--moss) !important;
+  padding: 0.2rem 0 !important;
+}
+
+.moyeo-cat-subscribe__rss:hover,
+.moyeo-cat-subscribe__rss:focus {
+  color: var(--moss-deep) !important;
+  text-decoration: underline !important;
 }
 
 /* --- Archive: quieter secondary --- */

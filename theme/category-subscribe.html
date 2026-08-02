@@ -1,0 +1,139 @@
+<!--
+  Blogger Layout → HTML/JavaScript 위젯에 아래 본문만 붙여 넣으세요.
+  위젯 제목: 카테고리
+  배치: 사이드바 상단(글 보관함 위). 기존 라벨(#Label1) 가젯은 숨기거나 제거하세요.
+  스타일은 가젯 안에 포함 (Theme CSS 추가 UI 우회).
+
+  이메일: Blogger FollowByEmail은 2021년 종료. Blogtrottr(RSS→이메일)로 전체 글 구독.
+-->
+<style>
+#Label1{display:none!important}
+.sidebar-container .widget:has(.moyeo-cat-subscribe){order:1!important}
+#BlogArchive1{order:2!important}
+.sidebar-container .widget:has(.moyeo-cat-subscribe) .title,
+.sidebar-container .widget:has(.moyeo-cat-subscribe) h3.title{
+  font-family:"IBM Plex Sans KR",sans-serif!important;
+  font-size:.68rem!important;font-weight:600!important;
+  letter-spacing:.14em!important;text-transform:uppercase!important;
+  color:var(--moss,#2f6b4f)!important;margin:0!important;
+  padding:.45rem 1rem .2rem!important;border:0!important
+}
+.moyeo-cat-subscribe{margin:0!important;padding:0 0 .15rem!important;width:100%!important;box-sizing:border-box!important}
+.moyeo-cat-subscribe__hint{
+  margin:0!important;padding:.15rem 1rem .35rem!important;
+  font-family:"IBM Plex Sans KR",sans-serif!important;
+  font-size:.78rem!important;font-weight:400!important;line-height:1.4!important;
+  color:var(--muted,#6b7872)!important
+}
+.moyeo-cat-subscribe__email{
+  margin:0!important;padding:.15rem 1rem .85rem!important;
+  border-bottom:1px solid var(--line,rgba(26,36,32,.12))!important;
+  box-sizing:border-box!important
+}
+.moyeo-cat-subscribe__email-btn{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  box-sizing:border-box!important;width:100%!important;min-height:42px!important;
+  margin:0!important;padding:.55rem .85rem!important;
+  border:1px solid var(--moss,#2f6b4f)!important;border-radius:0!important;
+  background:var(--moss,#2f6b4f)!important;color:#fff!important;
+  font-family:"IBM Plex Sans KR",sans-serif!important;
+  font-size:.88rem!important;font-weight:600!important;line-height:1.2!important;
+  text-decoration:none!important;cursor:pointer!important;
+  transition:background .18s ease,border-color .18s ease
+}
+.moyeo-cat-subscribe__email-btn:hover,
+.moyeo-cat-subscribe__email-btn:focus{
+  background:var(--moss-deep,#1e4a36)!important;border-color:var(--moss-deep,#1e4a36)!important;
+  color:#fff!important;text-decoration:none!important
+}
+.moyeo-cat-subscribe__email-note{
+  margin:.4rem 0 0!important;padding:0!important;
+  font-family:"IBM Plex Sans KR",sans-serif!important;
+  font-size:.72rem!important;font-weight:400!important;line-height:1.35!important;
+  color:var(--muted,#6b7872)!important
+}
+.moyeo-cat-subscribe__list{list-style:none!important;margin:0!important;padding:.15rem 0 0!important;display:block!important;width:100%!important}
+.moyeo-cat-subscribe__list>li{
+  display:flex!important;align-items:center!important;justify-content:space-between!important;
+  gap:.75rem!important;box-sizing:border-box!important;width:100%!important;min-height:44px!important;
+  margin:0!important;padding:.7rem 1rem!important;border:0!important;
+  border-left:3px solid transparent!important;background:transparent!important;
+  transition:background .18s ease,border-color .18s ease
+}
+.moyeo-cat-subscribe__list>li:hover,
+.moyeo-cat-subscribe__list>li:focus-within{
+  background:rgba(47,107,79,.08)!important;border-left-color:var(--moss,#2f6b4f)!important
+}
+.moyeo-cat-subscribe__list>li.moyeo-cat-subscribe__all{
+  border-bottom:1px solid var(--line,rgba(26,36,32,.12))!important;
+  margin-bottom:.15rem!important;padding-bottom:.85rem!important
+}
+.moyeo-cat-subscribe__name{
+  flex:1 1 auto!important;min-width:0!important;
+  font-family:"IBM Plex Sans KR",sans-serif!important;
+  font-size:.98rem!important;font-weight:500!important;line-height:1.3!important;
+  color:var(--ink,#1a2420)!important;text-decoration:none!important
+}
+a.moyeo-cat-subscribe__name:hover,
+a.moyeo-cat-subscribe__name:focus{color:var(--moss-deep,#1e4a36)!important;text-decoration:none!important}
+.moyeo-cat-subscribe__list>li.moyeo-cat-subscribe__all .moyeo-cat-subscribe__name{font-weight:600!important}
+.moyeo-cat-subscribe__list>li:hover .moyeo-cat-subscribe__name,
+.moyeo-cat-subscribe__list>li:focus-within .moyeo-cat-subscribe__name{color:var(--moss-deep,#1e4a36)!important}
+.moyeo-cat-subscribe__rss{
+  flex:0 0 auto!important;font-family:"IBM Plex Sans KR",sans-serif!important;
+  font-size:.72rem!important;font-weight:600!important;letter-spacing:.06em!important;
+  text-transform:uppercase!important;text-decoration:none!important;
+  color:var(--moss,#2f6b4f)!important;padding:.2rem 0!important
+}
+.moyeo-cat-subscribe__rss:hover,
+.moyeo-cat-subscribe__rss:focus{color:var(--moss-deep,#1e4a36)!important;text-decoration:underline!important}
+</style>
+<div class="moyeo-cat-subscribe">
+  <p class="moyeo-cat-subscribe__hint">카테고리로 글을 보거나, 이메일·RSS로 구독하세요.</p>
+
+  <div class="moyeo-cat-subscribe__email">
+    <a class="moyeo-cat-subscribe__email-btn"
+       href="https://blogtrottr.com/?subscribe=https%3A%2F%2Fmoyeo.blogspot.com%2Ffeeds%2Fposts%2Fdefault"
+       target="_blank"
+       rel="noopener noreferrer">이메일로 새 글 받기</a>
+    <p class="moyeo-cat-subscribe__email-note">Blogtrottr에서 이메일을 입력하면 전체 글 알림이 옵니다.</p>
+  </div>
+
+  <ul class="moyeo-cat-subscribe__list">
+    <li class="moyeo-cat-subscribe__all">
+      <a class="moyeo-cat-subscribe__name" href="https://moyeo.blogspot.com/">전체 글</a>
+      <a class="moyeo-cat-subscribe__rss"
+         href="https://moyeo.blogspot.com/feeds/posts/default"
+         rel="alternate"
+         type="application/atom+xml">RSS</a>
+    </li>
+    <li>
+      <a class="moyeo-cat-subscribe__name" href="https://moyeo.blogspot.com/search/label/Travel">Travel</a>
+      <a class="moyeo-cat-subscribe__rss"
+         href="https://moyeo.blogspot.com/feeds/posts/default/-/Travel"
+         rel="alternate"
+         type="application/atom+xml">RSS</a>
+    </li>
+    <li>
+      <a class="moyeo-cat-subscribe__name" href="https://moyeo.blogspot.com/search/label/%EC%9E%A1%ED%95%99">잡학</a>
+      <a class="moyeo-cat-subscribe__rss"
+         href="https://moyeo.blogspot.com/feeds/posts/default/-/%EC%9E%A1%ED%95%99"
+         rel="alternate"
+         type="application/atom+xml">RSS</a>
+    </li>
+    <li>
+      <a class="moyeo-cat-subscribe__name" href="https://moyeo.blogspot.com/search/label/%EC%A3%BC%EC%8B%9D">주식</a>
+      <a class="moyeo-cat-subscribe__rss"
+         href="https://moyeo.blogspot.com/feeds/posts/default/-/%EC%A3%BC%EC%8B%9D"
+         rel="alternate"
+         type="application/atom+xml">RSS</a>
+    </li>
+    <li>
+      <a class="moyeo-cat-subscribe__name" href="https://moyeo.blogspot.com/search/label/%EA%B0%9C%EB%B0%9C%20%EB%85%B8%ED%8A%B8">개발 노트</a>
+      <a class="moyeo-cat-subscribe__rss"
+         href="https://moyeo.blogspot.com/feeds/posts/default/-/%EA%B0%9C%EB%B0%9C%20%EB%85%B8%ED%8A%B8"
+         rel="alternate"
+         type="application/atom+xml">RSS</a>
+    </li>
+  </ul>
+</div>
