@@ -12,6 +12,7 @@
 
 ## 사용함
 
+- [x] 레오폴드·시추에이셔널 어웨어니스 사태 (2026-07-31, `posts/2026-07-31-leopold-situational-awareness.md`) — published
 - [x] 코스피·코스닥 시황 — 역대급 상승 마감·스냅백 (2026-07-31, `posts/2026-07-31-kospi-historic-close-green.md`) — published
 - [x] 코스피·코스닥 시황 — 매수 사이드카·두 자릿수 급등 (2026-07-31, `posts/2026-07-31-kospi-buy-sidecar-surge.md`) — published
 - [x] 쿠버네티스 워커 노드 추가 — kubeadm join·Ready 검증 (2026-07-31, `posts/2026-07-31-kubernetes-add-worker-node.md`) — published
