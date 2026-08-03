@@ -12,6 +12,7 @@
 
 ## 사용함
 
+- [x] 코스피·코스닥 시황 — 장마감 코스피↓코스닥↑ 괴리 유지 (2026-08-03, `posts/2026-08-03-kospi-close-divergence.md`) — published
 - [x] 코스피·코스닥 시황 — 역대급 급등 다음날 소화·지수 괴리 (2026-08-03, `posts/2026-08-03-kospi-digest-after-snapback.md`) — published
 - [x] 레오폴드·시추에이셔널 어웨어니스 사태 (2026-07-31, `posts/2026-07-31-leopold-situational-awareness.md`) — published
 - [x] 코스피·코스닥 시황 — 역대급 상승 마감·스냅백 (2026-07-31, `posts/2026-07-31-kospi-historic-close-green.md`) — published
