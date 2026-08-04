@@ -12,6 +12,8 @@
 
 ## 사용함
 
+- [x] vi 고급 사용자 가이드 — 모션·오브젝트·매크로 (2026-08-04, `posts/2026-08-04-vi-advanced-guide.md`) — published
+- [x] 코스피·코스닥 시황 — 초록 개장 후 하락 전환·stale cache (2026-08-04, `posts/2026-08-04-kospi-stale-green-open.md`) — published
 - [x] 코스피·코스닥 시황 — 장마감 코스피↓코스닥↑ 괴리 유지 (2026-08-03, `posts/2026-08-03-kospi-close-divergence.md`) — published
 - [x] 코스피·코스닥 시황 — 역대급 급등 다음날 소화·지수 괴리 (2026-08-03, `posts/2026-08-03-kospi-digest-after-snapback.md`) — published
 - [x] 레오폴드·시추에이셔널 어웨어니스 사태 (2026-07-31, `posts/2026-07-31-leopold-situational-awareness.md`) — published
