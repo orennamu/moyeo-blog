@@ -12,7 +12,10 @@
 
 ## 사용함
 
+- [x] Unity WoW식 RPG 미니 존(배경) — Terrain·라이팅·랜드마크 (2026-08-05, `posts/2026-08-05-unity-wow-rpg-mini-zone.md`) — published
 - [x] 코스피·코스닥 시황 — 6600 회복·유가증권 매수 사이드카·외인 복귀 (2026-08-05, `posts/2026-08-05-kospi-buy-sidecar-6600.md`) — published
+- [x] Unity WoW식 RPG — AI 첫 질문부터 CharacterController 이동 (2026-08-04, `posts/2026-08-04-unity-wow-rpg-ai-movement.md`) — published
+- [x] AI 게임 개발 기초 가이드 — 범위·엔진·역할·수직 슬라이스 (2026-08-04, `posts/2026-08-04-ai-game-dev-basics.md`) — published
 - [x] vi 고급 사용자 가이드 — 모션·오브젝트·매크로 (2026-08-04, `posts/2026-08-04-vi-advanced-guide.md`) — published
 - [x] 코스피·코스닥 시황 — 시가≈종가·장중 6080·코스닥 3연속 사이드카 (2026-08-04, `posts/2026-08-04-kospi-close-path-dependence.md`) — published
 - [x] 코스피·코스닥 시황 — 초록 개장 후 하락 전환·stale cache (2026-08-04, `posts/2026-08-04-kospi-stale-green-open.md`) — published
