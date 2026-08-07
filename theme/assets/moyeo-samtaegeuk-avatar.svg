@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="¼Üù">
+  <defs>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.55 0"/>
+    </filter>
+    <filter id="mid" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.75 0"/>
+    </filter>
+    <radialGradient id="paper" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#fffdf8"/>
+      <stop offset="70%" stop-color="#f2efe6"/>
+      <stop offset="100%" stop-color="#e8e6de"/>
+    </radialGradient>
+    <!-- Classic samtaegeuk petal path (unit circle), rotated 120° each -->
+    <path id="petal" d="M256 256
+      C256 150 310 70 380 70
+      C430 120 430 200 380 256
+      C310 256 256 200 256 256 Z"/>
+  </defs>
+  <rect width="512" height="512" fill="url(#paper)"/>
+  <!-- Soft outer bloom: becoming clearer toward center -->
+  <g filter="url(#soft)" opacity="0.9" transform="translate(256 256) scale(1.18) translate(-256 -256)">
+    <use href="#petal" fill="#2f5f9e" transform="rotate(0 256 256)"/>
+    <use href="#petal" fill="#c0392b" transform="rotate(120 256 256)"/>
+    <use href="#petal" fill="#d4a017" transform="rotate(240 256 256)"/>
+  </g>
+  <g filter="url(#mid)" opacity="0.95" transform="translate(256 256) scale(1.06) translate(-256 -256)">
+    <use href="#petal" fill="#24548f" transform="rotate(0 256 256)"/>
+    <use href="#petal" fill="#b13224" transform="rotate(120 256 256)"/>
+    <use href="#petal" fill="#c49212" transform="rotate(240 256 256)"/>
+  </g>
+  <!-- Sharp core -->
+  <g>
+    <use href="#petal" fill="#1e4d86" transform="rotate(0 256 256)"/>
+    <use href="#petal" fill="#9e2b1f" transform="rotate(120 256 256)"/>
+    <use href="#petal" fill="#b8860b" transform="rotate(240 256 256)"/>
+  </g>
+  <circle cx="256" cy="256" r="14" fill="#f7f3ea" opacity="0.92"/>
+</svg>

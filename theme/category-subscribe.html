@@ -1,139 +1,527 @@
 <!--
-  Blogger Layout → HTML/JavaScript 위젯에 아래 본문만 붙여 넣으세요.
+  Blogger Layout → HTML/JavaScript 위젯에 아래 <style>…</style>부터 끝까지 붙여 넣으세요.
   위젯 제목: 카테고리
-  배치: 사이드바 상단(글 보관함 위). 기존 라벨(#Label1) 가젯은 숨기거나 제거하세요.
-  스타일은 가젯 안에 포함 (Theme CSS 추가 UI 우회).
-
-  이메일: Blogger FollowByEmail은 2021년 종료. Blogtrottr(RSS→이메일)로 전체 글 구독.
+  기존 라벨(#Label1) 가젯은 숨기거나 제거하세요.
 -->
 <style>
+/* moyeo-cohesion-2026-08-07 */
+:root{
+  --ink:#1a2420;--ink-soft:#3d4a44;--muted:#6b7872;
+  --paper:#f2efe6;--paper-deep:#e8e6de;--stage:transparent;
+  --stage-edge:rgba(26,36,32,.08);
+  --moss:#2f6b4f;--moss-deep:#1e4a36;--line:rgba(26,36,32,.1);
+}
+/* moyeo-profile-avatar-2026-08-07 */#Profile1,#Profile1.widget.Profile{display:block!important;height:auto!important;overflow:visible!important;padding:.85rem 1.1rem!important;margin:0!important;border-bottom:1px solid var(--line)!important;box-sizing:border-box!important;width:100%!important}#Profile1 .wrapper,#Profile1 .widget-content{display:flex!important;flex-direction:row!important;align-items:center!important;gap:.85rem!important;margin:0!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}#Profile1 .widget-content>a{flex:0 0 auto!important;display:block!important;width:64px!important;height:64px!important;border-radius:999px!important;overflow:hidden!important}#Profile1 .profile-img,#Profile1 img.profile-img{display:block!important;width:64px!important;height:64px!important;border-radius:999px!important;object-fit:cover!important;box-shadow:0 0 0 1px rgba(26,36,32,.08),0 8px 18px -12px rgba(26,36,32,.28)!important}#Profile1 .default-avatar-wrapper{display:block!important;width:64px!important;height:64px!important;border-radius:999px!important;overflow:hidden!important;background:url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAFwvFOOHoT7tBCwaTUAXRqMI1s6bN9eXg7P5P5dvaVqim6fLxslfYEZHUh6uFpi3HMY2s3uNi-U1bxCwWjAukVd6wfjlY1G8FIlqltP9vvyEDED1lN0TeszBRmzFsWLsSt03wDCNI8O3WrwEVLwHl_fnQ7O_1l58IbuMYMuCMnFK7iw/s512-c/moyeo-samtaegeuk-avatar-512.jpg") center/cover no-repeat!important;box-shadow:0 0 0 1px rgba(26,36,32,.08),0 8px 18px -12px rgba(26,36,32,.28)!important}#Profile1 .avatar-icon,#Profile1 .default-avatar-wrapper svg{display:none!important}#Profile1 .profile-info{flex:1 1 auto!important;min-width:0!important;margin:0!important}#Profile1 .profile-link.g-profile{display:block!important;font-family:"IBM Plex Sans KR",sans-serif!important;font-size:.9rem!important;font-weight:600!important;color:var(--ink)!important;text-decoration:none!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}#Profile1 .visit-profile,#Profile1 a.visit-profile.pill-button{display:none!important}
+
+body,.body-fauxcolumn-outer,.body-fauxcolumn-inner,.bg-photo,.content-outer,.content-fauxcolumn-outer,.content-inner{
+  background-color:#f2efe6!important;
+  background-image:
+    radial-gradient(ellipse 90% 55% at 50% -15%,rgba(255,252,244,.95),transparent 70%),
+    radial-gradient(ellipse 55% 45% at 100% 18%,rgba(47,107,79,.09),transparent 62%),
+    radial-gradient(ellipse 50% 40% at -5% 72%,rgba(196,168,120,.14),transparent 60%),
+    radial-gradient(ellipse 40% 30% at 80% 95%,rgba(47,107,79,.05),transparent 55%),
+    linear-gradient(165deg,#faf7f0 0%,#f3f0e7 42%,#eef1e9 100%)!important;
+  background-attachment:fixed!important;
+}
+.bg-photo,.bg-photo-overlay,.page_body>.bg-photo{
+  min-height:0!important;height:0!important;max-height:0!important;overflow:hidden!important;opacity:0!important;
+}
+.centered,.centered-top-container,.centered-bottom{
+  max-width:760px!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box!important;
+}
+.centered-top-container{
+  background:linear-gradient(180deg,rgba(255,253,248,.55) 0%,rgba(255,253,248,.22) 100%)!important;
+  border:0!important;box-shadow:none!important;padding:0!important;margin:.75rem auto 0!important;
+}
+.centered-top{
+  position:relative!important;min-height:52px!important;box-sizing:border-box!important;
+  background:transparent!important;border:0!important;box-shadow:none!important;text-align:center!important;
+  padding:.85rem 1.5rem .95rem!important;margin:0!important;
+}
+.header-wrapper,.header-inner,#header,.header,.Header,#Header1,.blog-name{
+  background:transparent!important;border:0!important;box-shadow:none!important;text-align:center!important;
+  min-height:0!important;height:auto!important;padding:0!important;margin:0!important;
+}
+.blog-name.container{margin:0!important;padding:.15rem 2.5rem!important}
+#header .titlewrapper,.Header h1,.Header .title,#header h1,.header h1,.blog-name h1{
+  font-family:"Noto Serif KR","Newsreader",Georgia,serif!important;font-weight:700!important;
+  font-size:clamp(1.55rem,2.8vw,1.85rem)!important;line-height:1.15!important;letter-spacing:-.03em!important;
+  color:var(--ink)!important;margin:0 auto!important;white-space:nowrap;
+}
+#header .description,.Header .description,.header .description{display:none!important}
+#header .titlewrapper::after,.Header .titlewrapper::after,.blog-name .titlewrapper::after{
+  content:"moyeo · 잡학 디버깅 노트";display:block;margin-top:.35rem;font-size:.68rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--moss);font-weight:500;
+  font-family:"IBM Plex Sans KR",sans-serif;
+}
+.centered-top::after{
+  content:"";display:block;height:1px;margin:.85rem auto 0;
+  background:linear-gradient(90deg,transparent,rgba(47,107,79,.28),transparent);
+}
+.centered-bottom{padding:0!important;margin-top:0!important;margin-bottom:2.5rem!important}
+#page_body.main.section,#page_body.section,.centered-bottom #page_body{
+  background:linear-gradient(180deg,rgba(255,253,248,.38) 0%,rgba(255,252,246,.18) 45%,rgba(255,252,246,.08) 100%)!important;
+  border:0!important;box-shadow:none!important;
+  padding:.15rem 1.5rem 2.25rem!important;box-sizing:border-box!important;max-width:none!important;
+}
+.blog-posts.hfeed,body.item-view .blog-posts,body.static_page .blog-posts,.index .blog-posts.hfeed,.blog-posts-container{
+  background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;max-width:none!important;margin:0!important;
+}
+#FeaturedPost1,.widget.FeaturedPost{background:transparent!important;border:0!important;box-shadow:none!important;margin:0!important;padding:0!important}
+#FeaturedPost1 .widget-content,.widget.FeaturedPost .widget-content{padding:0!important;margin:0!important;background:transparent!important}
+#FeaturedPost1 .post,.widget.FeaturedPost .post{
+  padding:1.25rem 0 1.75rem!important;margin:0!important;border:0!important;border-bottom:1px solid var(--line)!important;
+  background:transparent!important;box-shadow:none!important;
+}
+#FeaturedPost1 .post-title,.widget.FeaturedPost .post-title{font-size:clamp(1.45rem,3vw,1.85rem)!important}
+.blog-posts .post-outer,.blog-posts .post,#Blog1 .post,article.post,.blog-post,.post-outer-container,.post-wrapper{
+  background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;
+  padding:1.85rem 0 2rem!important;margin:0!important;border-bottom:1px solid rgba(26,36,32,.08)!important;
+}
+body.item-view .post,body.static_page .post{
+  padding:1.35rem 0 1.75rem!important;border-bottom:0!important;background:transparent!important;box-shadow:none!important;
+}
+.blog-posts .post-outer:last-child,.blog-posts .post:last-of-type,#Blog1 .post:last-of-type{border-bottom:0!important}
+.widget.AdSense,.widget.adsense,div.widget[id^="AdSense"],.section .widget.AdSense{
+  background:transparent!important;border:0!important;box-shadow:none!important;margin:1.25rem 0!important;padding:0!important;
+}
+.widget.AdSense .title,.widget.AdSense h2.title,.widget.AdSense h3.title{display:none!important}
+.widget.AdSense .widget-content,.adsbygoogle{
+  display:block!important;margin:0 auto!important;background:rgba(255,253,248,.92)!important;
+  border:1px solid rgba(26,36,32,.07)!important;box-shadow:none!important;border-radius:0!important;
+  overflow:hidden!important;text-align:center!important;
+}
+#ads,.section#ads,.ads{background:transparent!important;border:0!important;max-width:760px!important;margin-left:auto!important;margin-right:auto!important}
+.sidebar-container,.sidebar-container.container{
+  background:linear-gradient(180deg,rgba(255,253,248,.78) 0%,rgba(243,240,232,.9) 100%)!important;
+  border-right:1px solid rgba(26,36,32,.08)!important;color:var(--ink-soft)!important;
+}
+.sidebar-container>.navigation{background:transparent!important;border-bottom:1px solid var(--line)!important}
+@media (max-width:800px){
+  .centered,.centered-top-container,.centered-bottom{margin-left:.5rem!important;margin-right:.5rem!important;max-width:none!important}
+  .centered-top{padding:.7rem 1rem .8rem!important}
+  #page_body.main.section,#page_body.section,.centered-bottom #page_body{padding:.15rem 1.1rem 1.75rem!important}
+}
+/* /moyeo-cohesion-2026-08-07 */
+
+/* moyeo-post-body-2026-08-07 */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,650;1,6..72,500&family=Noto+Serif+KR:wght@500;600;700&display=swap');
+/* --- Post body: readable editorial prose --- */
+.post-body,
+.entry-content,
+.post-body.entry-content,
+.blog-post-body,
+div.post-body.entry-content {
+  color: var(--ink-soft,#3d4a44) !important;
+  font-family: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif !important;
+  font-size: 1.0625rem !important; /* 17px */
+  font-weight: 400 !important;
+  line-height: 1.9 !important;
+  letter-spacing: -0.011em !important;
+  word-break: keep-all !important;
+  overflow-wrap: break-word !important;
+  max-width: 40rem !important;
+}
+
+.post-body > *:first-child,
+.entry-content > *:first-child {
+  margin-top: 0.15rem !important;
+}
+
+.post-body p,
+.entry-content p {
+  margin: 0 0 1.15em !important;
+  max-width: 40rem !important;
+}
+
+.post-body p:last-child,
+.entry-content p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Opening paragraph: slightly larger, ink-forward */
+.item-view .post-body > p:first-of-type,
+body.item-view .post-body > p:first-of-type {
+  color: var(--ink,#1a2420) !important;
+  font-size: 1.125rem !important;
+  line-height: 1.85 !important;
+  margin-bottom: 1.35em !important;
+}
+
+.post-body h2,
+.entry-content h2,
+.post-body h3,
+.entry-content h3 {
+  font-family: "Newsreader", "Noto Serif KR", Georgia, serif !important;
+  color: var(--ink,#1a2420) !important;
+  font-weight: 650 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.35 !important;
+  max-width: 40rem !important;
+}
+
+.post-body h2,
+.entry-content h2 {
+  font-size: 1.4rem !important;
+  margin: 2.4rem 0 0.85rem !important;
+  padding: 0.15rem 0 0.55rem 0.85rem !important;
+  border-left: 3px solid var(--moss,#2f6b4f) !important;
+  border-bottom: 0 !important;
+}
+
+.post-body h3,
+.entry-content h3 {
+  font-size: 1.15rem !important;
+  margin: 1.85rem 0 0.65rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+.post-body h2 + p,
+.entry-content h2 + p,
+.post-body h3 + p,
+.entry-content h3 + p {
+  margin-top: 0.35em !important;
+}
+
+.post-body a,
+.entry-content a {
+  color: var(--moss-deep,#1e4a36) !important;
+  text-decoration: underline !important;
+  text-decoration-color: rgba(30, 74, 54, 0.35) !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 0.18em !important;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.post-body a:hover,
+.entry-content a:hover {
+  color: var(--moss,#2f6b4f) !important;
+  text-decoration-color: var(--moss,#2f6b4f) !important;
+}
+
+.post-body strong,
+.entry-content strong,
+.post-body b,
+.entry-content b {
+  color: var(--ink,#1a2420) !important;
+  font-weight: 600 !important;
+}
+
+.post-body em,
+.entry-content em,
+.post-body i,
+.entry-content i {
+  font-style: italic !important;
+  color: var(--ink,#1a2420) !important;
+}
+
+.post-body ul,
+.entry-content ul,
+.post-body ol,
+.entry-content ol {
+  margin: 0.35em 0 1.25em !important;
+  padding: 0 0 0 1.25rem !important;
+  max-width: 40rem !important;
+}
+
+.post-body li,
+.entry-content li {
+  margin: 0.35em 0 !important;
+  padding-left: 0.15rem !important;
+  line-height: 1.8 !important;
+}
+
+.post-body ul > li::marker,
+.entry-content ul > li::marker {
+  color: var(--moss,#2f6b4f) !important;
+}
+
+.post-body ol > li::marker,
+.entry-content ol > li::marker {
+  color: var(--moss-deep,#1e4a36) !important;
+  font-weight: 600 !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.post-body blockquote,
+.entry-content blockquote {
+  margin: 1.6rem 0 !important;
+  padding: 0.85rem 1.1rem 0.85rem 1.15rem !important;
+  border: 0 !important;
+  border-left: 3px solid var(--moss,#2f6b4f) !important;
+  background: rgba(47, 107, 79, 0.06) !important;
+  color: var(--ink,#1a2420) !important;
+  font-family: "Newsreader", "Noto Serif KR", Georgia, serif !important;
+  font-size: 1.08rem !important;
+  font-style: italic !important;
+  line-height: 1.7 !important;
+  max-width: 40rem !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.post-body blockquote p,
+.entry-content blockquote p {
+  margin: 0.4em 0 !important;
+}
+
+.post-body blockquote p:first-child,
+.entry-content blockquote p:first-child {
+  margin-top: 0 !important;
+}
+
+.post-body hr,
+.entry-content hr {
+  border: 0 !important;
+  height: 1px !important;
+  margin: 2.25rem auto !important;
+  max-width: 8rem !important;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(47, 107, 79, 0.45),
+    transparent
+  ) !important;
+}
+
+.post-body code,
+.entry-content code {
+  font-family: "IBM Plex Mono", "Consolas", "Menlo", monospace !important;
+  font-size: 0.9em !important;
+  color: var(--moss-deep,#1e4a36) !important;
+  background: rgba(47, 107, 79, 0.08) !important;
+  padding: 0.12em 0.4em !important;
+  border-radius: 3px !important;
+  border: 1px solid rgba(47, 107, 79, 0.12) !important;
+}
+
+.post-body pre,
+.entry-content pre {
+  margin: 1.4rem 0 !important;
+  padding: 1rem 1.1rem !important;
+  overflow-x: auto !important;
+  max-width: 100% !important;
+  background: #1a2420 !important;
+  color: #e8efe9 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-size: 0.88rem !important;
+  line-height: 1.65 !important;
+}
+
+.post-body pre code,
+.entry-content pre code {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+  color: inherit !important;
+  font-size: inherit !important;
+}
+
+.post-body img,
+.entry-content img {
+  display: block !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 1.5rem auto !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.post-body figure,
+.entry-content figure {
+  margin: 1.6rem 0 !important;
+  max-width: 40rem !important;
+}
+
+.post-body figcaption,
+.entry-content figcaption,
+.post-body .tr-caption,
+.entry-content .tr-caption {
+  margin-top: 0.5rem !important;
+  font-size: 0.8rem !important;
+  line-height: 1.45 !important;
+  color: var(--muted,#6b7872) !important;
+  text-align: center !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* Contemp often wraps body; keep labels quiet */
+.item-view .post-footer,
+.item-view .post-footer-line,
+.post-labels,
+.post-labels a {
+  font-family: "IBM Plex Sans KR", sans-serif !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.04em !important;
+}
+
+.post-labels a {
+  color: var(--moss,#2f6b4f) !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(47, 107, 79, 0.25);
+}
+
+@media (max-width: 800px) {
+  .post-body,
+  .entry-content,
+  .post-body.entry-content {
+    font-size: 1.02rem !important;
+    line-height: 1.85 !important;
+  }
+
+  .item-view .post-body > p:first-of-type,
+  body.item-view .post-body > p:first-of-type {
+    font-size: 1.06rem !important;
+  }
+
+  .post-body h2,
+  .entry-content h2 {
+    font-size: 1.28rem !important;
+    margin-top: 2rem !important;
+    padding-left: 0.7rem !important;
+  }
+}
+/* /moyeo-post-body-2026-08-07 */
 #Label1{display:none!important}
-.sidebar-container .widget:has(.moyeo-cat-subscribe){order:1!important}
+.sidebar-container .widget:has(.moyeo-nav){order:1!important}
 #BlogArchive1{order:2!important}
-.sidebar-container .widget:has(.moyeo-cat-subscribe) .title,
-.sidebar-container .widget:has(.moyeo-cat-subscribe) h3.title{
+#ReportAbuse1{order:9!important}
+
+.sidebar-container .widget:has(.moyeo-nav) > .title,
+.sidebar-container .widget:has(.moyeo-nav) > h3.title{
   font-family:"IBM Plex Sans KR",sans-serif!important;
   font-size:.68rem!important;font-weight:600!important;
   letter-spacing:.14em!important;text-transform:uppercase!important;
-  color:var(--moss,#2f6b4f)!important;margin:0!important;
-  padding:.45rem 1rem .2rem!important;border:0!important
+  color:#2f6b4f!important;margin:0!important;
+  padding:.7rem 1rem .35rem!important;border:0!important
 }
-.moyeo-cat-subscribe{margin:0!important;padding:0 0 .15rem!important;width:100%!important;box-sizing:border-box!important}
-.moyeo-cat-subscribe__hint{
-  margin:0!important;padding:.15rem 1rem .35rem!important;
-  font-family:"IBM Plex Sans KR",sans-serif!important;
-  font-size:.78rem!important;font-weight:400!important;line-height:1.4!important;
-  color:var(--muted,#6b7872)!important
+
+.moyeo-nav{
+  --mn-ink:#1a2420;--mn-moss:#2f6b4f;--mn-deep:#1e4a36;--mn-muted:#6b7872;
+  --mn-line:rgba(26,36,32,.12);--mn-soft:rgba(47,107,79,.08);
+  box-sizing:border-box!important;width:100%!important;max-width:100%!important;
+  margin:0!important;padding:0 0 .75rem!important;
+  font-family:"IBM Plex Sans KR",sans-serif!important;color:var(--mn-ink)!important;
+  overflow:hidden!important
 }
-.moyeo-cat-subscribe__email{
-  margin:0!important;padding:.15rem 1rem .85rem!important;
-  border-bottom:1px solid var(--line,rgba(26,36,32,.12))!important;
-  box-sizing:border-box!important
+.moyeo-nav *,.moyeo-nav *::before,.moyeo-nav *::after{box-sizing:border-box!important}
+.moyeo-nav a{text-decoration:none!important}
+
+.moyeo-nav__lead{
+  margin:0!important;padding:0 1rem .65rem!important;
+  font-size:.78rem!important;font-weight:400!important;line-height:1.45!important;
+  color:var(--mn-muted)!important
 }
-.moyeo-cat-subscribe__email-btn{
+
+.moyeo-nav__list{
+  list-style:none!important;margin:0!important;padding:0!important;
+  display:block!important;width:100%!important
+}
+.moyeo-nav__list li{
+  display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;
+  align-items:center!important;column-gap:.75rem!important;
+  width:100%!important;margin:0!important;padding:.55rem 1rem!important;
+  border:0!important;border-left:3px solid transparent!important;
+  background:transparent!important
+}
+.moyeo-nav__list li:hover,
+.moyeo-nav__list li:focus-within{
+  background:var(--mn-soft)!important;border-left-color:var(--mn-moss)!important
+}
+.moyeo-nav__list a.moyeo-nav__link{
+  min-width:0!important;overflow:hidden!important;text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+  font-size:.95rem!important;font-weight:500!important;line-height:1.3!important;
+  color:var(--mn-ink)!important
+}
+.moyeo-nav__list li:first-child a.moyeo-nav__link{font-weight:600!important}
+.moyeo-nav__list li:hover a.moyeo-nav__link,
+.moyeo-nav__list li:focus-within a.moyeo-nav__link{color:var(--mn-deep)!important}
+.moyeo-nav__list a.moyeo-nav__rss{
+  font-size:.68rem!important;font-weight:600!important;letter-spacing:.06em!important;
+  text-transform:uppercase!important;color:var(--mn-moss)!important;white-space:nowrap!important
+}
+.moyeo-nav__list a.moyeo-nav__rss:hover,
+.moyeo-nav__list a.moyeo-nav__rss:focus{color:var(--mn-deep)!important;text-decoration:underline!important}
+
+.moyeo-nav__section{
+  margin:.55rem 1rem 0!important;padding:.75rem 0 0!important;
+  border-top:1px solid var(--mn-line)!important
+}
+.moyeo-nav__label{
+  display:block!important;margin:0 0 .45rem!important;
+  font-size:.68rem!important;font-weight:600!important;letter-spacing:.12em!important;
+  text-transform:uppercase!important;color:var(--mn-moss)!important
+}
+
+.moyeo-nav__btn{
   display:flex!important;align-items:center!important;justify-content:center!important;
-  box-sizing:border-box!important;width:100%!important;min-height:42px!important;
-  margin:0!important;padding:.55rem .85rem!important;
-  border:1px solid var(--moss,#2f6b4f)!important;border-radius:0!important;
-  background:var(--moss,#2f6b4f)!important;color:#fff!important;
-  font-family:"IBM Plex Sans KR",sans-serif!important;
-  font-size:.88rem!important;font-weight:600!important;line-height:1.2!important;
-  text-decoration:none!important;cursor:pointer!important;
-  transition:background .18s ease,border-color .18s ease
+  width:100%!important;min-height:40px!important;margin:0!important;padding:.5rem .75rem!important;
+  border:1px solid var(--mn-moss)!important;border-radius:0!important;
+  background:var(--mn-moss)!important;color:#fff!important;
+  font-size:.86rem!important;font-weight:600!important;line-height:1.2!important
 }
-.moyeo-cat-subscribe__email-btn:hover,
-.moyeo-cat-subscribe__email-btn:focus{
-  background:var(--moss-deep,#1e4a36)!important;border-color:var(--moss-deep,#1e4a36)!important;
-  color:#fff!important;text-decoration:none!important
-}
-.moyeo-cat-subscribe__email-note{
+.moyeo-nav__btn:hover,
+.moyeo-nav__btn:focus{background:var(--mn-deep)!important;border-color:var(--mn-deep)!important;color:#fff!important}
+.moyeo-nav__note{
   margin:.4rem 0 0!important;padding:0!important;
-  font-family:"IBM Plex Sans KR",sans-serif!important;
-  font-size:.72rem!important;font-weight:400!important;line-height:1.35!important;
-  color:var(--muted,#6b7872)!important
+  font-size:.72rem!important;line-height:1.4!important;color:var(--mn-muted)!important
 }
-.moyeo-cat-subscribe__list{list-style:none!important;margin:0!important;padding:.15rem 0 0!important;display:block!important;width:100%!important}
-.moyeo-cat-subscribe__list>li{
-  display:flex!important;align-items:center!important;justify-content:space-between!important;
-  gap:.75rem!important;box-sizing:border-box!important;width:100%!important;min-height:44px!important;
-  margin:0!important;padding:.7rem 1rem!important;border:0!important;
-  border-left:3px solid transparent!important;background:transparent!important;
-  transition:background .18s ease,border-color .18s ease
+
+.moyeo-nav__site{
+  display:flex!important;flex-wrap:wrap!important;align-items:center!important;
+  gap:.15rem .35rem!important;margin:0!important;padding:0!important;
+  font-size:.82rem!important;line-height:1.5!important
 }
-.moyeo-cat-subscribe__list>li:hover,
-.moyeo-cat-subscribe__list>li:focus-within{
-  background:rgba(47,107,79,.08)!important;border-left-color:var(--moss,#2f6b4f)!important
-}
-.moyeo-cat-subscribe__list>li.moyeo-cat-subscribe__all{
-  border-bottom:1px solid var(--line,rgba(26,36,32,.12))!important;
-  margin-bottom:.15rem!important;padding-bottom:.85rem!important
-}
-.moyeo-cat-subscribe__name{
-  flex:1 1 auto!important;min-width:0!important;
-  font-family:"IBM Plex Sans KR",sans-serif!important;
-  font-size:.98rem!important;font-weight:500!important;line-height:1.3!important;
-  color:var(--ink,#1a2420)!important;text-decoration:none!important
-}
-a.moyeo-cat-subscribe__name:hover,
-a.moyeo-cat-subscribe__name:focus{color:var(--moss-deep,#1e4a36)!important;text-decoration:none!important}
-.moyeo-cat-subscribe__list>li.moyeo-cat-subscribe__all .moyeo-cat-subscribe__name{font-weight:600!important}
-.moyeo-cat-subscribe__list>li:hover .moyeo-cat-subscribe__name,
-.moyeo-cat-subscribe__list>li:focus-within .moyeo-cat-subscribe__name{color:var(--moss-deep,#1e4a36)!important}
-.moyeo-cat-subscribe__rss{
-  flex:0 0 auto!important;font-family:"IBM Plex Sans KR",sans-serif!important;
-  font-size:.72rem!important;font-weight:600!important;letter-spacing:.06em!important;
-  text-transform:uppercase!important;text-decoration:none!important;
-  color:var(--moss,#2f6b4f)!important;padding:.2rem 0!important
-}
-.moyeo-cat-subscribe__rss:hover,
-.moyeo-cat-subscribe__rss:focus{color:var(--moss-deep,#1e4a36)!important;text-decoration:underline!important}
+.moyeo-nav__site a{color:var(--mn-ink)!important}
+.moyeo-nav__site a:hover,
+.moyeo-nav__site a:focus{color:var(--mn-deep)!important;text-decoration:underline!important}
+.moyeo-nav__dot{color:var(--mn-muted)!important;user-select:none!important}
 </style>
-<div class="moyeo-cat-subscribe">
-  <p class="moyeo-cat-subscribe__hint">카테고리로 글을 보거나, 이메일·RSS로 구독하세요.</p>
 
-  <div class="moyeo-cat-subscribe__email">
-    <a class="moyeo-cat-subscribe__email-btn"
-       href="https://blogtrottr.com/?subscribe=https%3A%2F%2Fmoyeo.blogspot.com%2Ffeeds%2Fposts%2Fdefault"
-       target="_blank"
-       rel="noopener noreferrer">이메일로 새 글 받기</a>
-    <p class="moyeo-cat-subscribe__email-note">Blogtrottr에서 이메일을 입력하면 전체 글 알림이 옵니다.</p>
-  </div>
+<nav class="moyeo-nav" aria-label="블로그 탐색">
+  <p class="moyeo-nav__lead">라벨로 글을 고르거나, 이메일·RSS로 받아 보세요.</p>
 
-  <ul class="moyeo-cat-subscribe__list">
-    <li class="moyeo-cat-subscribe__all">
-      <a class="moyeo-cat-subscribe__name" href="https://moyeo.blogspot.com/">전체 글</a>
-      <a class="moyeo-cat-subscribe__rss"
-         href="https://moyeo.blogspot.com/feeds/posts/default"
-         rel="alternate"
-         type="application/atom+xml">RSS</a>
+  <ul class="moyeo-nav__list">
+    <li>
+      <a class="moyeo-nav__link" href="https://moyeo.blogspot.com/">전체 글</a>
+      <a class="moyeo-nav__rss" href="https://moyeo.blogspot.com/feeds/posts/default" rel="alternate" type="application/atom+xml">RSS</a>
     </li>
     <li>
-      <a class="moyeo-cat-subscribe__name" href="https://moyeo.blogspot.com/search/label/Travel">Travel</a>
-      <a class="moyeo-cat-subscribe__rss"
-         href="https://moyeo.blogspot.com/feeds/posts/default/-/Travel"
-         rel="alternate"
-         type="application/atom+xml">RSS</a>
+      <a class="moyeo-nav__link" href="https://moyeo.blogspot.com/search/label/Travel">Travel</a>
+      <a class="moyeo-nav__rss" href="https://moyeo.blogspot.com/feeds/posts/default/-/Travel" rel="alternate" type="application/atom+xml">RSS</a>
     </li>
     <li>
-      <a class="moyeo-cat-subscribe__name" href="https://moyeo.blogspot.com/search/label/%EC%9E%A1%ED%95%99">잡학</a>
-      <a class="moyeo-cat-subscribe__rss"
-         href="https://moyeo.blogspot.com/feeds/posts/default/-/%EC%9E%A1%ED%95%99"
-         rel="alternate"
-         type="application/atom+xml">RSS</a>
+      <a class="moyeo-nav__link" href="https://moyeo.blogspot.com/search/label/%EC%9E%A1%ED%95%99">잡학</a>
+      <a class="moyeo-nav__rss" href="https://moyeo.blogspot.com/feeds/posts/default/-/%EC%9E%A1%ED%95%99" rel="alternate" type="application/atom+xml">RSS</a>
     </li>
     <li>
-      <a class="moyeo-cat-subscribe__name" href="https://moyeo.blogspot.com/search/label/%EC%A3%BC%EC%8B%9D">주식</a>
-      <a class="moyeo-cat-subscribe__rss"
-         href="https://moyeo.blogspot.com/feeds/posts/default/-/%EC%A3%BC%EC%8B%9D"
-         rel="alternate"
-         type="application/atom+xml">RSS</a>
+      <a class="moyeo-nav__link" href="https://moyeo.blogspot.com/search/label/%EC%A3%BC%EC%8B%9D">주식</a>
+      <a class="moyeo-nav__rss" href="https://moyeo.blogspot.com/feeds/posts/default/-/%EC%A3%BC%EC%8B%9D" rel="alternate" type="application/atom+xml">RSS</a>
     </li>
     <li>
-      <a class="moyeo-cat-subscribe__name" href="https://moyeo.blogspot.com/search/label/%EA%B0%9C%EB%B0%9C%20%EB%85%B8%ED%8A%B8">개발 노트</a>
-      <a class="moyeo-cat-subscribe__rss"
-         href="https://moyeo.blogspot.com/feeds/posts/default/-/%EA%B0%9C%EB%B0%9C%20%EB%85%B8%ED%8A%B8"
-         rel="alternate"
-         type="application/atom+xml">RSS</a>
+      <a class="moyeo-nav__link" href="https://moyeo.blogspot.com/search/label/%EA%B0%9C%EB%B0%9C%20%EB%85%B8%ED%8A%B8">개발 노트</a>
+      <a class="moyeo-nav__rss" href="https://moyeo.blogspot.com/feeds/posts/default/-/%EA%B0%9C%EB%B0%9C%20%EB%85%B8%ED%8A%B8" rel="alternate" type="application/atom+xml">RSS</a>
     </li>
   </ul>
-</div>
+
+  <div class="moyeo-nav__section">
+    <span class="moyeo-nav__label">구독</span>
+    <a class="moyeo-nav__btn"
+       href="https://blogtrottr.com/?subscribe=https%3A%2F%2Fmoyeo.blogspot.com%2Ffeeds%2Fposts%2Fdefault"
+       target="_blank" rel="noopener noreferrer">이메일로 새 글 받기</a>
+    <p class="moyeo-nav__note">Blogtrottr에서 이메일을 입력하면 전체 글 알림이 옵니다.</p>
+  </div>
+
+  <div class="moyeo-nav__section">
+    <span class="moyeo-nav__label">사이트</span>
+    <p class="moyeo-nav__site">
+      <a href="/p/blog-page.html">소개</a><span class="moyeo-nav__dot">·</span>
+      <a href="/p/blog-page_06.html">개인정보처리방침</a><span class="moyeo-nav__dot">·</span>
+      <a href="/p/blog-page_249.html">문의</a>
+    </p>
+  </div>
+</nav>
